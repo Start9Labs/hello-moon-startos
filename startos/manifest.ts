@@ -7,7 +7,7 @@ import { actionsMetadata } from './procedures/actions'
 export const manifest = setupManifest({
   id: 'hello-moon',
   title: 'Hello Moon',
-  version: '4.0.0.0',
+  version: '4.0.0',
   releaseNotes: 'Initial release for StartOS 0.4.0',
   license: 'mit',
   replaces: Array<string>(),
@@ -42,12 +42,12 @@ export const manifest = setupManifest({
   },
   actions: actionsMetadata,
   alerts: {
-    install: 'Optional alert to display before installing the service',
-    update: 'Optional alert to display before updating the service',
-    uninstall: 'Optional alert to display before uninstalling the service',
-    restore: 'Optional alert to display before restoring the service from backup',
-    start: 'Optional alert to display before starting the service',
-    stop: 'Optional alert to display before stopping the service',
+    install: null,
+    update: null,
+    uninstall: null,
+    restore: null,
+    start: null,
+    stop: null,
   },
   dependencies: {
     'hello-world': {

@@ -1,9 +1,9 @@
 import { setupManifest } from 'start-sdk/lib/manifest'
 import { actionsMetadata } from './procedures/actions'
 
-/** 
+/**
  * In this function you define static properties of the service
-*/
+ */
 export const manifest = setupManifest({
   id: 'hello-moon',
   title: 'Hello Moon',
@@ -56,7 +56,7 @@ export const manifest = setupManifest({
       requirement: { type: 'required' },
       /** uncomment for Hello World conditional */
       // requirement: { type: 'opt-in', how: 'Enable in config' }
-    }
+    },
   },
 })
 

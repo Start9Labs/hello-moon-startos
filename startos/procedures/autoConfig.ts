@@ -7,10 +7,15 @@ import { Manifest } from '../manifest'
 /**
  * In this function, you establish rules for auto configuring service dependencies
  */
-export const autoConfig = setupAutoConfig<WrapperData, ConfigSpec, Manifest, { 'hello-world': HelloWorldSpec }>({
-  'hello-world': async ({ effects, localConfig, remoteConfig }) => {
+export const autoConfig = setupAutoConfig<
+  WrapperData,
+  ConfigSpec,
+  Manifest,
+  { 'hello-world': HelloWorldSpec }
+>({
+  'hello-world': async ({ effects, utils, localConfig, remoteConfig }) => {
     return {
       name: 'Satoshi',
     }
-  }
+  },
 })

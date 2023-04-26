@@ -19,7 +19,7 @@ export const main: ExpectedExports.main = setupMain<WrapperData>(async ({
    *
    * In this section, you will fetch any resources or run any commands necessary to run the service
    */
-  await effects.runCommand('echo "Starting Hello Moon!"')
+  await effects.console.info('Starting Hello Moon!')
 
   /**
    * ======================== Interfaces ========================
@@ -46,10 +46,8 @@ export const main: ExpectedExports.main = setupMain<WrapperData>(async ({
 
   // ------------ LAN ------------
 
-  // Find or generate a random port by ID
-  const lanPort1 = utils.localPort('lanPort1')
   // Create a LAN host with the assigned internal port
-  const lanHost1 = await lanPort1.bindLan(8080)
+  const lanHost1 = await utils.bindLan(8080)
   // Assign the LAN host a web protocol (e.g. "https", "wss")
   const lanOrigins1 = lanHost1.createOrigins('https')
 
@@ -104,12 +102,10 @@ export const main: ExpectedExports.main = setupMain<WrapperData>(async ({
     id: 'webui', // The ID of the daemon
     command: './hello-moon', // The command to start the daemon
     ready: {
-      display: {
-        // Optional. If present, the health check will display to the user
-        name: 'Web Interface',
+      display: 'Web Interface',
+      fn: () => checkPortListening(effects, 8080, {
         message: 'The web interface is ready',
-      },
-      fn: () => checkPortListening(effects, 8080, {}), // The function to run to determine the health status of the daemon
+      }), // The function to run to determine the health status of the daemon
     },
   })
 })

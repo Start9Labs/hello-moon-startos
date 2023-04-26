@@ -1,6 +1,7 @@
 import { ConfigSpec } from './spec'
 import { WrapperData } from '../../wrapperData'
 import { Save } from 'start-sdk/lib/config/setupConfig'
+import { Manifest } from '../../manifest'
 import { dependencies } from 'start-sdk/lib/config'
 
 /**
@@ -10,10 +11,11 @@ import { dependencies } from 'start-sdk/lib/config'
  * 
  * Hello Moon does not have config. See Hello World for an example
  */
-export const save: Save<WrapperData, ConfigSpec> = async ({
+export const save: Save<WrapperData, ConfigSpec, Manifest> = async ({
   effects,
   utils,
   input,
+  dependencies
 }) => {
   /** uncomment for Hello World conditional */
   // await utils.setWrapperData('/config', input)

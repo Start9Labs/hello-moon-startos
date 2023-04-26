@@ -9,7 +9,7 @@ import { Read } from 'start-sdk/lib/config/setupConfig'
  * 
  * Hello Moon does not have config. See Hello World for an example
  */
-export const read: Read<WrapperData, ConfigSpec> = async ({ utils }) => {
+export const read: Read<WrapperData, ConfigSpec> = async ({ effects, utils }) => {
   /** uncomment for Hello World conditional */
   // return utils.getWrapperData('/config').first()
 }

@@ -69,7 +69,7 @@ export const main: ExpectedExports.main = setupMain<WrapperData>(
     const addressReceipt1 = await iFace1.exportAddresses([
       torOrigin1,
       torOrigin2,
-      lanOrigins1.ip,
+      ...lanOrigins1.ip,
       lanOrigins1.local,
     ])
 
@@ -95,15 +95,17 @@ export const main: ExpectedExports.main = setupMain<WrapperData>(
       started,
       interfaceReceipt, // Provide the interfaceReceipt to prove it was completed
       healthReceipts, // Provide the healthReceipts or [] to prove they were at least considered
-    }).addDaemon({
-      id: 'webui', // The ID of the daemon
+    }).addDaemon('webui', {
       command: './hello-moon', // The command to start the daemon
+      requires: [],
       ready: {
         display: 'Web Interface',
+        // The function to run to determine the health status of the daemon
         fn: () =>
           checkPortListening(effects, 8080, {
-            message: 'The web interface is ready',
-          }), // The function to run to determine the health status of the daemon
+            successMessage: 'The web interface is ready',
+            errorMessage: 'Something went wrong',
+          }),
       },
     })
   },

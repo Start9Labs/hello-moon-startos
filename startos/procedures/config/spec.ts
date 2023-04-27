@@ -11,11 +11,11 @@ const { Config } = configBuilder
  */
 export const configSpec = Config.of({
   /** uncomment for Hello World conditional */
-  // helloWorld: Value.toggle({
-  //   name: 'Enable Hello World',
-  //   description: 'Turn on to make Hello Moon depend on Hello World',
-  //   default: false,
-  // })
+  helloWorld: Value.toggle({
+    name: 'Enable Hello World',
+    description: 'Turn on to make Hello Moon depend on Hello World',
+    default: false,
+  }),
 })
 // These two lines are necessary to satisfy Typescript typings
 export const matchConfigSpec = configSpec.validator()

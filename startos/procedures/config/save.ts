@@ -2,7 +2,6 @@ import { ConfigSpec } from './spec'
 import { WrapperData } from '../../wrapperData'
 import { Save } from 'start-sdk/lib/config/setupConfig'
 import { Manifest } from '../../manifest'
-import { dependencies } from 'start-sdk/lib/config'
 
 /**
  * This function executes on config save
@@ -18,7 +17,12 @@ export const save: Save<WrapperData, ConfigSpec, Manifest> = async ({
   dependencies,
 }) => {
   /** uncomment for Hello World conditional */
-  // await utils.setWrapperData('/config', input)
-  // if (input.helloWorld) return effects.setDependencies([dependencies.running('hello-world')])
-  return effects.setDependencies([])
+  // await utils.setOwnWrapperData('/config', input)
+  const deps = input.helloWorld ? [dependencies.running('hello-world')] : []
+  const dependenciesReceipt = await effects.setDependencies(deps)
+
+  return {
+    dependenciesReceipt,
+    restart: true,
+  }
 }

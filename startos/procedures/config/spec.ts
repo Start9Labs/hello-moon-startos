@@ -1,6 +1,5 @@
-import { configBuilder } from 'start-sdk/lib'
-import { Value } from 'start-sdk/lib/config/builder'
-const { Config } = configBuilder
+import { Value, topConfig } from 'start-sdk/lib/config/builder'
+import { WrapperData } from '../../wrapperData'
 
 /**
  * Here you define the config specification that will ultimately present to the user as validated form inputs
@@ -9,14 +8,14 @@ const { Config } = configBuilder
  *
  * Hello Moon does not have config. See Hello World for an example
  */
-export const configSpec = Config.of({
+export const configSpec = topConfig<WrapperData>()({
   /** uncomment for Hello World conditional */
-  helloWorld: Value.toggle({
-    name: 'Enable Hello World',
-    description: 'Turn on to make Hello Moon depend on Hello World',
-    default: false,
-  }),
+  // helloWorld: Value.toggle({
+  //   name: 'Enable Hello World',
+  //   description: 'Turn on to make Hello Moon depend on Hello World',
+  //   default: false,
+  // }),
 })
-// These two lines are necessary to satisfy Typescript typings
-export const matchConfigSpec = configSpec.validator()
-export type ConfigSpec = typeof matchConfigSpec._TYPE
+
+// This line is necessary to satisfy Typescript typings. Do not touch it.
+export type ConfigSpec = typeof configSpec.validator._TYPE

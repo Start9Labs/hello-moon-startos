@@ -1,4 +1,4 @@
-import { setupManifest } from 'start-sdk/lib/manifest'
+import { setupManifest } from 'start-sdk/lib/manifest/setupManifest'
 import { actionsMetadata } from './procedures/actions'
 
 /**
@@ -54,7 +54,7 @@ export const manifest = setupManifest({
       version: '>=4.0.0.0',
       description: 'A moon needs a world',
       requirement: { type: 'required' },
-      /** uncomment for Hello World conditional */
+      /** uncomment to make Hello World a conditional dependency */
       // requirement: { type: 'opt-in', how: 'Enable in config' }
     },
   },

@@ -13,6 +13,6 @@ export const read: Read<WrapperData, ConfigSpec> = async ({
   effects,
   utils,
 }) => {
-  /** uncomment for Hello World conditional */
+  /** uncomment to make Hello World a conditional dependency */
   // return utils.getWrapperData('/config').first()
 }

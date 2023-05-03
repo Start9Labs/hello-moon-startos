@@ -1,5 +1,5 @@
-import { Value, topConfig } from 'start-sdk/lib/config/builder'
-import { WrapperData } from '../../wrapperData'
+import { Config } from 'start-sdk/lib/config/builder/config'
+import { Value } from 'start-sdk/lib/config/builder/value'
 
 /**
  * Here you define the config specification that will ultimately present to the user as validated form inputs
@@ -8,8 +8,8 @@ import { WrapperData } from '../../wrapperData'
  *
  * Hello Moon does not have config. See Hello World for an example
  */
-export const configSpec = topConfig<WrapperData>()({
-  /** uncomment for Hello World conditional */
+export const configSpec = Config.of({
+  /** uncomment to make Hello World a conditional dependency */
   // helloWorld: Value.toggle({
   //   name: 'Enable Hello World',
   //   description: 'Turn on to make Hello Moon depend on Hello World',

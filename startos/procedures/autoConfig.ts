@@ -1,8 +1,8 @@
-import { setupAutoConfig } from 'start-sdk/lib/autoconfig'
 import { ConfigSpec } from './config/spec'
 import { WrapperData } from '../wrapperData'
 import { ConfigSpec as HelloWorldSpec } from 'hello-world-wrapper/startos/procedures/config/spec'
 import { Manifest } from '../manifest'
+import { setupAutoConfig } from 'start-sdk/lib/autoconfig/setupAutoConfig'
 
 /**
  * In this function, you establish rules for auto configuring service dependencies

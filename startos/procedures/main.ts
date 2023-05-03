@@ -24,6 +24,8 @@ export const main: ExpectedExports.main = setupMain<WrapperData>(
      * Naming convention reference: https://developer.mozilla.org/en-US/docs/Web/API/Location
      */
 
+    // ------------ Reverse Proxy ------------
+
     // set up a reverse proxy to enable https for LAN
     await effects.reverseProxy({
       bind: {

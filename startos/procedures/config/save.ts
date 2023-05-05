@@ -18,8 +18,12 @@ export const save: Save<WrapperData, ConfigSpec, Manifest> = async ({
 }) => {
   /** uncomment to make Hello World a conditional dependency */
   // await utils.setOwnWrapperData('/config', input)
-  const deps = input.helloWorld ? [dependencies.running('hello-world')] : []
-  const dependenciesReceipt = await effects.setDependencies(deps)
+  // const deps = input.helloWorld ? [dependencies.running('hello-world')] : []
+  // const dependenciesReceipt = await effects.setDependencies(deps)
+
+  const dependenciesReceipt = await effects.setDependencies([
+    dependencies.running('hello-world'),
+  ])
 
   return {
     dependenciesReceipt,

@@ -16,6 +16,19 @@ export const main: ExpectedExports.main = setupMain<WrapperData>(
      */
     console.info('Starting Hello Moon!')
 
+    effects.mount({
+      location: {
+        volumeId: 'mnt',
+        path: '/hello-world',
+      },
+      target: {
+        packageId: 'hello-world',
+        volumeId: 'main',
+        path: '/',
+        readonly: true,
+      },
+    })
+
     /**
      * ======================== Interfaces ========================
      *

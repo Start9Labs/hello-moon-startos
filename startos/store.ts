@@ -5,7 +5,7 @@
  *
  * Hello Moon has no Wrapper Data. See Hello World for an example
  */
-export interface WrapperData {
+export interface Store {
   /** uncomment to make Hello World a conditional dependency */
   // config: { helloWorld: boolean }
 }

@@ -1,6 +1,5 @@
-import { ConfigSpec } from './spec'
-import { WrapperData } from '../../wrapperData'
-import { Read } from '@start9labs/start-sdk/lib/config/setupConfig'
+import { sdk } from '../../sdk'
+import { configSpec } from './spec'
 
 /**
  * This function executes on config get
@@ -9,10 +8,11 @@ import { Read } from '@start9labs/start-sdk/lib/config/setupConfig'
  *
  * Hello Moon does not have config. See Hello World for an example
  */
-export const read: Read<WrapperData, ConfigSpec> = async ({
-  effects,
-  utils,
-}) => {
-  /** uncomment to make Hello World a conditional dependency */
-  // return utils.getWrapperData('/config').first()
-}
+
+export const read = sdk.setupConfigRead(
+  configSpec,
+  async ({ effects, utils }) => {
+    /** uncomment to make Hello World a conditional dependency */
+    // return utils.store.getOwn('/config').once()
+  },
+)

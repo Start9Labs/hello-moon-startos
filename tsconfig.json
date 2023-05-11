@@ -1,5 +1,5 @@
 {
-  "include": ["startos/**/*.ts"],
+  "include": ["startos/**/*.ts", "startos/procedures/dependencies/dependencyConfigs"],
   "compilerOptions": {
     "target": "es2022",
     "module": "None",

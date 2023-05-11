@@ -1,7 +1,6 @@
-import { ConfigSpec } from './spec'
-import { WrapperData } from '../../wrapperData'
-import { Save } from '@start9labs/start-sdk/lib/config/setupConfig'
-import { Manifest } from '../../manifest'
+import { sdk } from '../../sdk'
+
+import { configSpec } from './spec'
 
 /**
  * This function executes on config save
@@ -10,23 +9,21 @@ import { Manifest } from '../../manifest'
  *
  * Hello Moon does not have config. See Hello World for an example
  */
-export const save: Save<WrapperData, ConfigSpec, Manifest> = async ({
-  effects,
-  utils,
-  input,
-  dependencies,
-}) => {
-  /** uncomment to make Hello World a conditional dependency */
-  // await utils.setOwnWrapperData('/config', input)
-  // const deps = input.helloWorld ? [dependencies.running('hello-world')] : []
-  // const dependenciesReceipt = await effects.setDependencies(deps)
+export const save = sdk.setupConfigSave(
+  configSpec,
+  async ({ effects, utils, input, dependencies }) => {
+    /** uncomment to make Hello World a conditional dependency */
+    // await utils.store.setOwn('/config', input)
+    // const deps = input.helloWorld ? [dependencies.running('hello-world')] : []
+    // const dependenciesReceipt = await effects.setDependencies(deps)
 
-  const dependenciesReceipt = await effects.setDependencies([
-    dependencies.running('hello-world'),
-  ])
+    const dependenciesReceipt = await effects.setDependencies([
+      dependencies.running('hello-world'),
+    ])
 
-  return {
-    dependenciesReceipt,
-    restart: true,
-  }
-}
+    return {
+      dependenciesReceipt,
+      restart: true,
+    }
+  },
+)

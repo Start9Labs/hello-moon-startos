@@ -1,4 +1,5 @@
 import { sdk } from '../../sdk'
+import { setInterfaces } from '../interfaces'
 
 import { configSpec } from './spec'
 
@@ -22,6 +23,7 @@ export const save = sdk.setupConfigSave(
     ])
 
     return {
+      interfacesReceipt: await setInterfaces({ effects, utils, input }),
       dependenciesReceipt,
       restart: true,
     }

@@ -41,7 +41,7 @@ export const main: ExpectedExports.main = sdk.setupMain(
         fn: () =>
           checkPortListening(effects, uiPort, {
             successMessage: 'The web interface is ready',
-            errorMessage: 'Something went wrong',
+            errorMessage: 'The web interface is unreachable',
           }),
       },
     })

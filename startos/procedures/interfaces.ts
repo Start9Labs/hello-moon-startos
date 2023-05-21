@@ -8,6 +8,8 @@ export const webUiInterfaceId = 'webui'
  * ======================== Interfaces ========================
  *
  * In this section, you will decide how the service will be exposed to the outside world
+ *
+ * This function runs on service install/update *and* on config save
  */
 export const setInterfaces = sdk.setupInterfaces(
   configSpec,
@@ -18,6 +20,8 @@ export const setInterfaces = sdk.setupInterfaces(
       name: 'Web UI',
       id: webUiInterfaceId,
       description: 'The web interface of Hello Moon',
+      hasPrimary: false,
+      disabled: false,
       ui: true,
       username: null,
       path: '',

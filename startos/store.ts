@@ -1,11 +1,9 @@
 /**
- * Here you define the set of data that the service wrapper will persist for self consumption or export to users and other services
+ * The Store is for saving any necessary data NOT saved by the upstream service. Do NOT persist data in the package that is already being persisted by the service
  *
- * It is conventional for the "config" key to store the service's saved config, excluding sensitive data like passwords
- *
- * Hello Moon has no Wrapper Data. See Hello World for an example
+ * Ideally this is empty. Stateless packages are easier to maintain and eliminate unexpected behavior
  */
 export interface Store {
   /** uncomment to make Hello World a conditional dependency */
-  // config: { helloWorld: boolean }
+  // needsWorld: boolean
 }

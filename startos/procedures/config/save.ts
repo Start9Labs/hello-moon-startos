@@ -14,8 +14,8 @@ export const save = sdk.setupConfigSave(
   configSpec,
   async ({ effects, utils, input, dependencies }) => {
     /** uncomment to make Hello World a conditional dependency */
-    // await utils.store.setOwn('/config', input)
-    // const deps = input.helloWorld ? [dependencies.running('hello-world')] : []
+    // await utils.store.setOwn('/needsWorld', input.needsWorld)
+    // const deps = input.needsWorld ? [dependencies.running('hello-world')] : []
     // const dependenciesReceipt = await effects.setDependencies(deps)
 
     const dependenciesReceipt = await effects.setDependencies([

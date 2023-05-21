@@ -3,7 +3,7 @@ import { setInterfaces } from './interfaces'
 import { migrations } from './migrations'
 
 /**
- * Here you define arbitrary code that runs once, on fresh install only
+ * Here you define arbitrary code that runs *once*, on fresh install only
  */
 const install = sdk.setupInstall(async ({ effects, utils }) => {})
 

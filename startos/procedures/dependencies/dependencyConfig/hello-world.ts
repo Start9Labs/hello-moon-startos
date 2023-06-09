@@ -10,7 +10,7 @@ import { configSpec as helloWorldSpec } from 'hello-world-wrapper/startos/proced
 export const helloWorldConfig = sdk.DependencyConfig.of({
   localConfig: configSpec,
   remoteConfig: helloWorldSpec,
-  dependencyConfig: async ({ effects, utils, localConfig, remoteConfig }) => {
+  dependencyConfig: async ({ effects, utils, localConfig }) => {
     return {
       name: 'Satoshi',
     }

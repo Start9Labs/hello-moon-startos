@@ -33,7 +33,7 @@ export const main: ExpectedExports.main = sdk.setupMain(
       started,
       healthReceipts, // Provide the healthReceipts or [] to prove they were at least considered
     }).addDaemon('webui', {
-      command: './hello-moon', // The command to start the daemon
+      command: ['./hello-moon'], // The command to start the daemon
       requires: [],
       ready: {
         display: 'Web Interface',

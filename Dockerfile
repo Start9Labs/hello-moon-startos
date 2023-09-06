@@ -1,1 +1,1 @@
-FROM alpine:3.17
+FROM start9labs/hello-moon

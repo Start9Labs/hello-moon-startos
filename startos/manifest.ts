@@ -19,6 +19,7 @@ export const manifest = setupManifest({
     short: 'Example service for s9pk highlighting basic features',
     long: 'Hello World is a bare-bones service that launches a web interface to say "Hello World", and nothing more.',
   },
+  // Relative paths to asset files
   assets: {
     license: 'LICENSE',
     icon: 'assets/icon.png',

@@ -4,6 +4,7 @@ import { ExpectedExports } from '@start9labs/start-sdk/lib/types'
 import { HealthReceipt } from '@start9labs/start-sdk/lib/health/HealthReceipt'
 import { Daemons } from '@start9labs/start-sdk/lib/mainFn/Daemons'
 import { uiPort } from './interfaces'
+import { dependencyMounts } from './dependencies/dependencyMounts'
 
 export const main: ExpectedExports.main = sdk.setupMain(
   async ({ effects, utils, started }) => {
@@ -13,6 +14,14 @@ export const main: ExpectedExports.main = sdk.setupMain(
      * In this section, you will fetch any resources or run any commands necessary to run the service
      */
     console.info('Starting Hello Moon!')
+
+    // Mount Hello World dir (this would only be necessary if Hello Moon is actually reading data from Hello World file system)
+    await utils.mountDependencies(dependencyMounts['hello-world'])
+
+    /** uncomment to make Hello World a conditional dependency */
+    // const needsWorld = await utils.store.getOwn('/needsWorld').once()
+    // if (needsWorld)
+    //   await utils.mountDependencies(dependencyMounts['hello-world'])
 
     /**
      * ======================== Additional Health Checks (optional) ========================

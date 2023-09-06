@@ -5,14 +5,14 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@start9labs/start-sdk": "0.4.0-rev0.lib0.rc7"
+    "@start9labs/start-sdk": "0.4.0-rev0.lib0.rc8.beta2"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@vercel/ncc": "^0.36.1",
     "prettier": "^2.8.4",
     "typescript": "^4.9.5",
-    "hello-world-wrapper": "git+https://github.com/Start9Labs/hello-world-wrapper.git#498351c708929f82ce40225fb1f771609153a516"
+    "hello-world-wrapper": "git+https://github.com/Start9Labs/hello-world-startos.git#f02c313d1d242ca884a746edc0b5c2b54c47fd8b"
   },
   "prettier": {
     "trailingComma": "all",

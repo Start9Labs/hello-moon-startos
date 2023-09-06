@@ -14,21 +14,21 @@ export const webUiInterfaceId = 'webui'
 export const setInterfaces = sdk.setupInterfaces(
   configSpec,
   async ({ effects, utils, input }) => {
-    const multi = utils.host.multi('multi')
-    const multiOrigin = await multi.bindPort(uiPort, { protocol: 'http' })
-    const multiInterface = utils.createInterface({
+    const uiMulti = utils.host.multi('multi')
+    const uiMultiOrigin = await uiMulti.bindPort(uiPort, { protocol: 'http' })
+    const ui = utils.createInterface({
       name: 'Web UI',
       id: webUiInterfaceId,
       description: 'The web interface of Hello Moon',
       hasPrimary: false,
       disabled: false,
-      ui: true,
+      type: 'ui',
       username: null,
       path: '',
       search: {},
     })
 
-    const multiReceipt = await multiInterface.export([multiOrigin])
+    const multiReceipt = await ui.export([uiMultiOrigin])
 
     return [multiReceipt]
   },

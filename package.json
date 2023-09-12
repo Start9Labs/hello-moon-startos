@@ -12,7 +12,7 @@
     "@vercel/ncc": "^0.36.1",
     "prettier": "^2.8.4",
     "typescript": "^4.9.5",
-    "hello-world-wrapper": "git+https://github.com/Start9Labs/hello-world-startos.git#f02c313d1d242ca884a746edc0b5c2b54c47fd8b"
+    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#f02c313d1d242ca884a746edc0b5c2b54c47fd8b"
   },
   "prettier": {
     "trailingComma": "all",

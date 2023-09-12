@@ -1,6 +1,6 @@
 import { sdk } from '../../../sdk'
 import { configSpec } from '../../config/spec'
-import { configSpec as helloWorldSpec } from 'hello-world-wrapper/startos/procedures/config/spec'
+import { configSpec as helloWorldSpec } from 'hello-world-startos/startos/procedures/config/spec'
 
 /**
  * In this function, you establish rules for configuring a dependency

@@ -1,5 +1,5 @@
 import { sdk } from '../../sdk'
-import { manifest as helloWorldManifest } from 'hello-world-wrapper/startos/manifest'
+import { manifest as helloWorldManifest } from 'hello-world-startos/startos/manifest'
 
 export const dependencyMounts = sdk
   .setupDependencyMounts()

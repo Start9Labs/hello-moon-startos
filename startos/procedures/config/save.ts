@@ -15,12 +15,16 @@ export const save = sdk.setupConfigSave(
   async ({ effects, utils, input, dependencies }) => {
     /** uncomment to make Hello World a conditional dependency */
     // await utils.store.setOwn('/needsWorld', input.needsWorld)
-    // const deps = input.needsWorld ? [dependencies.running('hello-world')] : []
-    // const dependenciesReceipt = await effects.setDependencies(deps)
+    // const deps = input.needsWorld
+    //   ? [dependencies.running('hello-world', ['webui'])]
+    //   : []
+    // const dependenciesReceipt = await effects.setDependencies({
+    //   dependencies: deps,
+    // })
 
-    const dependenciesReceipt = await effects.setDependencies([
-      dependencies.running('hello-world'),
-    ])
+    const dependenciesReceipt = await effects.setDependencies({
+      dependencies: [dependencies.running('hello-world', ['webui'])],
+    })
 
     return {
       interfacesReceipt: await setInterfaces({ effects, utils, input }),

@@ -18,8 +18,8 @@ const uninstall = sdk.setupUninstall(async ({ effects, utils }) => {})
 const exportedValues = sdk.setupExports(({ effects, utils }) => {
   return {
     // Values exported to the UI will be displayed (masked) in the user's "Vault". It is designed for credentials
-    ui: [],
-    services: [],
+    ui: {},
+    services: { paths: [] },
   }
 })
 

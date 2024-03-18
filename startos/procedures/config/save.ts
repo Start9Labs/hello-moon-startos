@@ -1,6 +1,5 @@
 import { sdk } from '../../sdk'
 import { setInterfaces } from '../interfaces'
-
 import { configSpec } from './spec'
 
 /**
@@ -12,7 +11,7 @@ import { configSpec } from './spec'
  */
 export const save = sdk.setupConfigSave(
   configSpec,
-  async ({ effects, utils, input, dependencies }) => {
+  async ({ effects, input, dependencies }) => {
     /** uncomment to make Hello World a conditional dependency */
     // await utils.store.setOwn('/needsWorld', input.needsWorld)
     // const deps = input.needsWorld
@@ -27,7 +26,7 @@ export const save = sdk.setupConfigSave(
     })
 
     return {
-      interfacesReceipt: await setInterfaces({ effects, utils, input }),
+      interfacesReceipt: await setInterfaces({ effects, input }),
       dependenciesReceipt,
       restart: true,
     }

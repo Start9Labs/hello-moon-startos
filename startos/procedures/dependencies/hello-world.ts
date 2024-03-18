@@ -1,5 +1,5 @@
-import { sdk } from '../../../sdk'
-import { configSpec } from '../../config/spec'
+import { sdk } from '../../sdk'
+import { configSpec } from '../config/spec'
 import { configSpec as helloWorldSpec } from 'hello-world-startos/startos/procedures/config/spec'
 
 /**
@@ -10,7 +10,7 @@ import { configSpec as helloWorldSpec } from 'hello-world-startos/startos/proced
 export const helloWorldConfig = sdk.DependencyConfig.of({
   localConfig: configSpec,
   remoteConfig: helloWorldSpec,
-  dependencyConfig: async ({ effects, utils, localConfig }) => {
+  dependencyConfig: async ({ effects, localConfig }) => {
     return {
       name: 'Satoshi',
     }

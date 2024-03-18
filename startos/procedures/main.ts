@@ -1,18 +1,15 @@
+import { HealthReceipt } from '@start9labs/start-sdk/cjs/sdk/lib/health/HealthReceipt'
 import { sdk } from '../sdk'
 import { uiPort } from './interfaces'
-import { dependencyMounts } from './dependencies/dependencyMounts'
-import { HealthReceipt } from '@start9labs/start-sdk/cjs/sdk/lib/health/HealthReceipt'
+import { manifest as helloWorldManifest } from 'hello-world-startos/startos/manifest'
 
-export const main = sdk.setupMain(async ({ effects, utils, started }) => {
+export const main = sdk.setupMain(async ({ effects, started }) => {
   /**
    * ======================== Setup ========================
    *
    * In this section, you will fetch any resources or run any commands necessary to run the service
    */
   console.info('Starting Hello Moon!')
-
-  // Mount Hello World dir (this would only be necessary if Hello Moon is actually reading data from Hello World file system)
-  await utils.mountDependencies(dependencyMounts['hello-world'])
 
   /** uncomment to make Hello World a conditional dependency */
   // const needsWorld = await utils.store.getOwn('/needsWorld').once()
@@ -39,6 +36,15 @@ export const main = sdk.setupMain(async ({ effects, utils, started }) => {
   }).addDaemon('webui', {
     imageId: 'main',
     command: ['./hello-moon'], // The command to start the daemon
+    mounts: sdk.Mounts.of()
+      .addVolume('main', null, '/data', false)
+      .addDependency<typeof helloWorldManifest>(
+        'hello-world',
+        'main',
+        null,
+        '/hello-world',
+        true,
+      ),
     requires: [],
     ready: {
       display: 'Web Interface',

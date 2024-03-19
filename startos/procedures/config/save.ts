@@ -3,11 +3,9 @@ import { setInterfaces } from '../interfaces'
 import { configSpec } from './spec'
 
 /**
- * This function executes on config save
+ * This function executes on config save.
  *
- * Use it to persist config data to various files and to establish any resulting dependencies
- *
- * Hello Moon does not have config. See Hello World for an example
+ * Use it to persist config data to various files and to establish any resulting dependencies.
  */
 export const save = sdk.setupConfigSave(
   configSpec,
@@ -21,14 +19,17 @@ export const save = sdk.setupConfigSave(
     //   dependencies: deps,
     // })
 
+    /**
+     ******** set current dependencies based on config ********
+     */
     const dependenciesReceipt = await effects.setDependencies({
       dependencies: [dependencies.running('hello-world', ['webui'])],
     })
 
     return {
-      interfacesReceipt: await setInterfaces({ effects, input }),
-      dependenciesReceipt,
-      restart: true,
+      interfacesReceipt: await setInterfaces({ effects, input }), // Plumbing. DO NOT EDIT. This line causes setInterfaces() to run whenever config is saved.
+      dependenciesReceipt, // Plumbing. DO NOT EDIT.
+      restart: true, // optionally restart the service on config save.
     }
   },
 )

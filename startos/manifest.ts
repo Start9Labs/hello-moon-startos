@@ -1,7 +1,7 @@
 import { setupManifest } from '@start9labs/start-sdk'
 
 /**
- * In this function you define static properties of the service to be displayed in the Marketplace and used by StartOS
+ * Here we define static properties of the package to be displayed in the Marketplace and used by StartOS.
  */
 export const manifest = setupManifest({
   id: 'hello-moon',
@@ -19,10 +19,9 @@ export const manifest = setupManifest({
     short: 'Example service for s9pk highlighting basic features',
     long: 'Hello World is a bare-bones service that launches a web interface to say "Hello World", and nothing more.',
   },
-  // Relative paths to asset files
-  assets: [],
-  volumes: ['main'],
-  images: ['main'],
+  assets: [], // directories of static files you want to mount to your container
+  volumes: ['main'], // IDs of persistence volumes that will be mounted to your container
+  images: ['main'], // IDs of images, used when other actions need to run in this image
   alerts: {
     install: null,
     update: null,

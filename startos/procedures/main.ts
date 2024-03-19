@@ -5,9 +5,9 @@ import { manifest as helloWorldManifest } from 'hello-world-startos/startos/mani
 
 export const main = sdk.setupMain(async ({ effects, started }) => {
   /**
-   * ======================== Setup ========================
+   * ======================== Setup (optional) ========================
    *
-   * In this section, you will fetch any resources or run any commands necessary to run the service
+   * In this section, we fetch any resources or run any desired preliminary commands.
    */
   console.info('Starting Hello Moon!')
 
@@ -18,24 +18,24 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
   /**
    * ======================== Additional Health Checks (optional) ========================
    *
-   * In this section, you will define additional health checks beyond those associated with daemons
+   * In this section, we define *additional* health checks beyond those included with each daemon (below).
    */
   const healthReceipts: HealthReceipt[] = []
 
   /**
    * ======================== Daemons ========================
    *
-   * In this section, you will create one or more daemons that define the service runtime
+   * In this section, we create one or more daemons that define the service runtime.
    *
-   * Each daemon defines its own health check, which can optionally be exposed to the user
+   * Each daemon defines its own health check, which can optionally be exposed to the user.
    */
   return sdk.Daemons.of({
     effects,
     started,
-    healthReceipts, // Provide the healthReceipts or [] to prove they were at least considered
+    healthReceipts,
   }).addDaemon('webui', {
-    imageId: 'main',
-    command: ['./hello-moon'], // The command to start the daemon
+    imageId: 'main', // Must match an Image ID declared in the manifest.
+    command: ['./hello-moon'], // The command to start the daemon.
     mounts: sdk.Mounts.of()
       .addVolume('main', null, '/data', false)
       .addDependency<typeof helloWorldManifest>(
@@ -45,15 +45,15 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
         '/hello-world',
         true,
       ),
-    requires: [],
     ready: {
-      display: 'Web Interface',
-      // The function to run to determine the health status of the daemon
+      display: 'Web Interface', // If null, the health check will NOT be displayed to the user. If provided, this string will be the name of the health check and displayed to the user.
+      // The function below determines the health status of the daemon
       fn: () =>
         sdk.healthCheck.checkPortListening(effects, uiPort, {
           successMessage: 'The web interface is ready',
           errorMessage: 'The web interface is unreachable',
         }),
     },
+    requires: [], // If this daemon depends on the successful initialization of one or more prior daemons, enter their IDs here.
   })
 })

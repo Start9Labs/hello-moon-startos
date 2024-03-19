@@ -3,9 +3,9 @@ import { configSpec } from '../config/spec'
 import { configSpec as helloWorldSpec } from 'hello-world-startos/startos/procedures/config/spec'
 
 /**
- * In this function, you establish rules for configuring a dependency
+ * Here we establish rules for configuring a dependency
  *
- * End user approval is required before changes are applied
+ * End user approval is required before changes are applied.
  */
 export const helloWorldConfig = sdk.DependencyConfig.of({
   localConfig: configSpec,

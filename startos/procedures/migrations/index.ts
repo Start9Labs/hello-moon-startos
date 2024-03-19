@@ -1,6 +1,8 @@
 import { sdk } from '../../sdk'
 
 /**
- * Add each new migration as the next argument to this function
+ * Here we list every migration in sequential order.
+ *
+ * See Hello World for an example.
  */
 export const migrations = sdk.setupMigrations()

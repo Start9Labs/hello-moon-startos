@@ -1,15 +1,16 @@
 import { sdk } from '../sdk'
 import { configSpec } from './config/spec'
 
+// It is good practice to abstract these two variables from each interface, as they may be used elsewhere in the package codebase or by dependent packages.
 export const uiPort = 8080
 export const webUiInterfaceId = 'webui'
 
 /**
- * ======================== Interfaces ========================
+ * ======================== Service Interfaces ========================
  *
- * In this section, you will decide how the service will be exposed to the outside world
+ * Here we decide how the service will be exposed to the outside world.
  *
- * This function runs on service install/update *and* on config save
+ * This function runs on install, update, and config save.
  */
 export const setInterfaces = sdk.setupInterfaces(
   configSpec,

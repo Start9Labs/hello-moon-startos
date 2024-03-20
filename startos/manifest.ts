@@ -37,5 +37,3 @@ export const manifest = setupManifest({
     },
   },
 })
-
-export type Manifest = typeof manifest

@@ -11,10 +11,6 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    */
   console.info('Starting Hello Moon!')
 
-  /** uncomment to make Hello World a conditional dependency */
-  // const needsWorld = await utils.store.getOwn('/needsWorld').once()
-  // if (needsWorld) await utils.mountDependencies(dependencyMounts['hello-world'])
-
   /**
    * ======================== Additional Health Checks (optional) ========================
    *

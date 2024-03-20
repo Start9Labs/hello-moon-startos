@@ -1,4 +1,5 @@
 import { sdk } from '../sdk'
+import { setDependencies } from './dependencies/dependencies'
 import { setInterfaces } from './interfaces'
 import { migrations } from './migrations'
 
@@ -23,7 +24,7 @@ const exportedValues = sdk.setupExports(({ effects }) => {
   return {
     /** Values exported to the UI are displayed in "Properties" according to the structure defined here. */
     ui: {},
-    services: { paths: [] },
+    services: [],
   }
 })
 
@@ -35,5 +36,6 @@ export const { init, uninit } = sdk.setupInit(
   install,
   uninstall,
   setInterfaces,
+  setDependencies,
   exportedValues,
 )

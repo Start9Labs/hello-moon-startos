@@ -32,11 +32,8 @@ export const manifest = setupManifest({
   },
   dependencies: {
     'hello-world': {
-      version: '>=4.0.0.0',
       description: 'A moon needs a world',
-      requirement: { type: 'required' },
-      /** uncomment to make Hello World a conditional dependency */
-      // requirement: { type: 'opt-in', how: 'Enable in config' },
+      optional: false, // change to true to make Hello World a conditional dependency
     },
   },
 })

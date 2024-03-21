@@ -9,11 +9,11 @@
     "@start9labs/start-sdk": "0.4.0-rev0.lib0.rc8.beta2"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "@vercel/ncc": "^0.36.1",
-    "prettier": "^2.8.4",
-    "typescript": "^4.9.5",
-    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#d7b3c6063db17d1233e4b9c7cc6adda5b5a29b87"
+    "@types/node": "^20.11.30",
+    "@vercel/ncc": "^0.38.1",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.3",
+    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#b9446f5986577cab972600a9f6fafa501106730e"
   },
   "prettier": {
     "trailingComma": "all",

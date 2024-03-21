@@ -1,4 +1,5 @@
 {
+  "name": "hello-moon",
   "scripts": {
     "build": "ncc build procedures/index.ts -o ./",
     "prettier": "prettier --write startos",

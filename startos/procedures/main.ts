@@ -34,13 +34,9 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
     command: ['./hello-moon'], // The command to start the daemon.
     mounts: sdk.Mounts.of()
       .addVolume('main', null, '/data', false)
-      .addDependency<typeof helloWorldManifest>(
-        'hello-world',
-        'main',
-        null,
-        '/hello-world',
-        true,
-      ),
+      .addDependency<
+        typeof helloWorldManifest
+      >('hello-world', 'main', null, '/hello-world', true),
     ready: {
       display: 'Web Interface', // If null, the health check will NOT be displayed to the user. If provided, this string will be the name of the health check and displayed to the user.
       // The function below determines the health status of the daemon

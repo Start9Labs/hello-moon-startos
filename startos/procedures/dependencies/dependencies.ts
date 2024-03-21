@@ -12,7 +12,7 @@ export const setDependencies = sdk.setupDependencies(
     return {
       'hello-world': sdk.Dependency.of({
         type: 'running',
-        versionSpec: '>=4.0.0.0',
+        versionSpec: sdk.Checker.parse('>=4.0.0.0'),
         url: '',
         healthChecks: ['webui'],
       }),

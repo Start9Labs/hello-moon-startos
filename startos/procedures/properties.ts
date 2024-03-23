@@ -5,4 +5,4 @@ import { sdk } from '../sdk'
  *
  * See Hello World for an example.
  */
-export const properties = sdk.setupProperties(async ({ effects }) => {})
+export const properties = sdk.setupProperties(async ({ effects }) => ({}))

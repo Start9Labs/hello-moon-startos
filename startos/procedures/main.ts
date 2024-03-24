@@ -11,8 +11,8 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    */
   console.info('Starting Hello Moon!')
 
-  const result = await checkAllDependencies()
-  result.throwIfError()
+  // const result = await checkAllDependencies()
+  // result.throwIfError()
 
   /**
    * ======================== Additional Health Checks (optional) ========================

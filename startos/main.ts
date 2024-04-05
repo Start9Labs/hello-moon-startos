@@ -1,5 +1,5 @@
 import { HealthReceipt } from '@start9labs/start-sdk/cjs/sdk/lib/health/HealthReceipt'
-import { sdk } from '../sdk'
+import { sdk } from './sdk'
 import { uiPort } from './interfaces'
 import { manifest as helloWorldManifest } from 'hello-world-startos/startos/manifest'
 

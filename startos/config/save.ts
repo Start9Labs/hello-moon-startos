@@ -1,4 +1,4 @@
-import { sdk } from '../../sdk'
+import { sdk } from '../sdk'
 import { setInterfaces } from '../interfaces'
 import { setDependencies } from '../dependencies/dependencies'
 import { configSpec } from './spec'

@@ -1,4 +1,4 @@
-import { sdk } from '../../sdk'
+import { sdk } from '../sdk'
 
 /**
  * ======================== Dependencies ========================
@@ -13,7 +13,7 @@ export const setDependencies = sdk.setupDependencies(
       'hello-world': sdk.Dependency.of({
         type: 'running',
         versionSpec: sdk.Checker.parse('>=4.0.0.0'),
-        url: '',
+        registryUrl: '',
         healthChecks: ['webui'],
       }),
     }

@@ -1,4 +1,4 @@
-import { sdk } from '../../sdk'
+import { sdk } from '../sdk'
 
 /**
  * Here we list every Action.

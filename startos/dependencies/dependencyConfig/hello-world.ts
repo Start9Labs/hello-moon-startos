@@ -1,4 +1,4 @@
-import { sdk } from '../../../sdk'
+import { sdk } from '../../sdk'
 import { configSpec } from '../../config/spec'
 import { configSpec as helloWorldSpec } from 'hello-world-startos/startos/procedures/config/spec'
 

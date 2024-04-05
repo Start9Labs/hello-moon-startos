@@ -1,5 +1,5 @@
-import { sdk } from '../sdk'
-import { exposedStore } from '../store'
+import { sdk } from './sdk'
+import { exposedStore } from './store'
 import { setDependencies } from './dependencies/dependencies'
 import { setInterfaces } from './interfaces'
 import { migrations } from './migrations'

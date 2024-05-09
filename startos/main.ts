@@ -1,7 +1,7 @@
-import { HealthReceipt } from '@start9labs/start-sdk/cjs/sdk/lib/health/HealthReceipt'
 import { sdk } from './sdk'
 import { uiPort } from './interfaces'
 import { manifest as helloWorldManifest } from 'hello-world-startos/startos/manifest'
+import { T } from '@start9labs/start-sdk'
 
 export const main = sdk.setupMain(async ({ effects, started }) => {
   /**
@@ -11,15 +11,15 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    */
   console.info('Starting Hello Moon!')
 
-  // const result = await checkAllDependencies()
-  // result.throwIfError()
+  const depResult = sdk.checkAllDependencies(effects)
+  await depResult.throwIfError()
 
   /**
    * ======================== Additional Health Checks (optional) ========================
    *
    * In this section, we define *additional* health checks beyond those included with each daemon (below).
    */
-  const healthReceipts: HealthReceipt[] = []
+  const healthReceipts: T.HealthReceipt[] = []
 
   /**
    * ======================== Daemons ========================

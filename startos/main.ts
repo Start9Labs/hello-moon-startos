@@ -1,7 +1,7 @@
 import { sdk } from './sdk'
 import { uiPort } from './interfaces'
-import { manifest as helloWorldManifest } from 'hello-world-startos/startos/manifest'
 import { T } from '@start9labs/start-sdk'
+import { manifest as helloWorldManifest } from 'hello-world-startos/startos/manifest'
 
 export const main = sdk.setupMain(async ({ effects, started }) => {
   /**
@@ -12,7 +12,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
   console.info('Starting Hello Moon!')
 
   const depResult = sdk.checkAllDependencies(effects)
-  await depResult.throwIfError()
+  await depResult.throwIfNotValid()
 
   /**
    * ======================== Additional Health Checks (optional) ========================
@@ -32,7 +32,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
     effects,
     started,
     healthReceipts,
-  }).addDaemon('webui', {
+  }).addDaemon('primary', {
     imageId: 'main', // Must match an Image ID declared in the manifest.
     command: ['./hello-moon'], // The command to start the daemon.
     mounts: sdk.Mounts.of()

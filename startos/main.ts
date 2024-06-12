@@ -33,7 +33,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
     started,
     healthReceipts,
   }).addDaemon('primary', {
-    imageId: 'main', // Must match an Image ID declared in the manifest.
+    image: { id: 'main' }, // Must match an Image ID declared in the manifest.
     command: ['./hello-moon'], // The command to start the daemon.
     mounts: sdk.Mounts.of()
       .addVolume('main', null, '/data', false)

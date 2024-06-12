@@ -6,12 +6,12 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@start9labs/start-sdk": "^0.4.0-3df957898aeaa22286970b280e3f525a480dfa96"
+    "@start9labs/start-sdk": "0.3.6-alpha5"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
     "@vercel/ncc": "^0.38.1",
-    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#f9db05203e39a92dbc0fff120549924f142e4faf",
+    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#4ef5c4171cef144e1977f5b321b219ed5b97fea2",
     "prettier": "^3.2.5",
     "typescript": "^5.4.3"
   },

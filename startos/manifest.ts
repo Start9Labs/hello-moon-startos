@@ -16,8 +16,8 @@ export const manifest = setupManifest({
   marketingSite: 'https://start9.com/',
   donationUrl: 'https://donate.start9.com/',
   description: {
-    short: 'Example service for s9pk highlighting basic features',
-    long: 'Hello World is a bare-bones service that launches a web interface to say "Hello World", and nothing more.',
+    short: 'Bare bones example of a StartOS service with dependencies',
+    long: 'Hello Moon is a bare-bones service with dependencies that launches a web interface to say "Hello Moon", and nothing more.',
   },
   assets: [], // directories of static files you want to mount to your container
   volumes: ['main'], // IDs of persistence volumes that will be mounted to your container
@@ -33,6 +33,7 @@ export const manifest = setupManifest({
       emulateMissingAs: 'aarch64',
     },
   }, // IDs of images, used when other actions need to run in this image
+  hardwareRequirements: null,
   alerts: {
     install: null,
     update: null,

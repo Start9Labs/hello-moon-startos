@@ -1,3 +1,4 @@
+import { VersionRange } from '@start9labs/start-sdk'
 import { sdk } from '../sdk'
 
 /**
@@ -12,7 +13,7 @@ export const setDependencies = sdk.setupDependencies(
     return {
       'hello-world': sdk.Dependency.of({
         type: 'running',
-        versionSpec: sdk.Checker.parse('>=1.0.0'),
+        versionRange: VersionRange.parse('>=1.0.0'),
         registryUrl: '',
         healthChecks: ['webui'],
       }),

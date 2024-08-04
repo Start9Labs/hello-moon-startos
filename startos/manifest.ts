@@ -6,10 +6,9 @@ import { setupManifest } from '@start9labs/start-sdk'
 export const manifest = setupManifest({
   id: 'hello-moon',
   title: 'Hello Moon',
-  version: '4.0.0',
+  version: '0.3.6:0',
   releaseNotes: 'Initial release for StartOS 0.4.0',
   license: 'mit',
-  replaces: [], // A list of SaaS services/products this service is intended to replace
   wrapperRepo: 'https://github.com/Start9Labs/hello-world-wrapper',
   upstreamRepo: 'https://github.com/Start9Labs/hello-world',
   supportSite: 'https://docs.start9.com/',
@@ -25,7 +24,7 @@ export const manifest = setupManifest({
     main: {
       source: {
         dockerBuild: {
-          dockerfile: './Dockerfile',
+          dockerfile: '../Dockerfile',
           workdir: '.',
         },
       },
@@ -33,7 +32,7 @@ export const manifest = setupManifest({
       emulateMissingAs: 'aarch64',
     },
   }, // IDs of images, used when other actions need to run in this image
-  hardwareRequirements: null,
+  hardwareRequirements: {},
   alerts: {
     install: null,
     update: null,
@@ -45,7 +44,8 @@ export const manifest = setupManifest({
   dependencies: {
     'hello-world': {
       description: 'A moon needs a world',
-      optional: false, // change to true to make Hello World a conditional dependency
+      optional: false,
+      s9pk: '',
     },
   },
 })

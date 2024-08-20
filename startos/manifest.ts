@@ -1,13 +1,12 @@
 import { setupManifest } from '@start9labs/start-sdk'
+import { versions } from './versions'
 
 /**
  * Here we define static properties of the package to be displayed in the Marketplace and used by StartOS.
  */
-export const manifest = setupManifest({
+export const manifest = setupManifest(versions, {
   id: 'hello-moon',
   title: 'Hello Moon',
-  version: '0.3.6:0',
-  releaseNotes: 'Initial release for StartOS 0.4.0',
   license: 'mit',
   wrapperRepo: 'https://github.com/Start9Labs/hello-world-wrapper',
   upstreamRepo: 'https://github.com/Start9Labs/hello-world',

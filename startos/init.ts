@@ -2,7 +2,7 @@ import { sdk } from './sdk'
 import { exposedStore } from './store'
 import { setDependencies } from './dependencies/dependencies'
 import { setInterfaces } from './interfaces'
-import { migrations } from './migrations'
+import { migrations } from './versions'
 
 /**
  * Here you define arbitrary code that runs *once*, on fresh install only.

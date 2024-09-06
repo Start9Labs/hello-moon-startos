@@ -1,9 +1,6 @@
 import { setupManifest } from '@start9labs/start-sdk'
 import { versions } from './versions'
 
-/**
- * Here we define static properties of the package to be displayed in the Marketplace and used by StartOS.
- */
 export const manifest = setupManifest(versions, {
   id: 'hello-moon',
   title: 'Hello Moon',
@@ -17,8 +14,8 @@ export const manifest = setupManifest(versions, {
     short: 'Bare bones example of a StartOS service with dependencies',
     long: 'Hello Moon is a bare-bones service with dependencies that launches a web interface to say "Hello Moon", and nothing more.',
   },
-  assets: [], // directories of static files you want to mount to your container
-  volumes: ['main'], // IDs of persistence volumes that will be mounted to your container
+  assets: [],
+  volumes: ['main'],
   images: {
     main: {
       source: {
@@ -30,7 +27,7 @@ export const manifest = setupManifest(versions, {
       arch: ['x86_64', 'aarch64'],
       emulateMissingAs: 'aarch64',
     },
-  }, // IDs of images, used when other actions need to run in this image
+  },
   hardwareRequirements: {},
   alerts: {
     install: null,

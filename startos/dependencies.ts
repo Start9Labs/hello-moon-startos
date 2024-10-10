@@ -15,6 +15,8 @@ export const setDependencies = sdk.setupDependencies(async ({ effects }) => {
           name: 'Satoshi',
         },
       },
+      when: { condition: 'input-not-matches', once: false },
+      reason: 'Hello Moon prefers the name Satoshi',
     },
   )
 

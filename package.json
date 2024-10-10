@@ -11,7 +11,7 @@
   "devDependencies": {
     "@types/node": "^22.1.0",
     "@vercel/ncc": "^0.38.1",
-    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#0eb9a39c8a902eb5aa076b88291797ddbae99977",
+    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#51d67be48dfb904e078d3febc1782d4851b3bc78",
     "prettier": "^3.2.5",
     "typescript": "^5.4.3"
   },

@@ -1,7 +1,6 @@
 import { setupManifest } from '@start9labs/start-sdk'
-import { versions } from './versions'
 
-export const manifest = setupManifest(versions, {
+export const manifest = setupManifest({
   id: 'hello-moon',
   title: 'Hello Moon',
   license: 'mit',

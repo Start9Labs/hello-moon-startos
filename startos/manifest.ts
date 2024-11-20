@@ -19,7 +19,7 @@ export const manifest = setupManifest({
     main: {
       source: {
         dockerBuild: {
-          dockerfile: '../Dockerfile',
+          dockerfile: 'Dockerfile',
           workdir: '.',
         },
       },
@@ -40,7 +40,7 @@ export const manifest = setupManifest({
     'hello-world': {
       description: 'A moon needs a world',
       optional: true,
-      s9pk: '',
+      s9pk: '../hello-world-startos/hello-world.s9pk',
     },
   },
 })

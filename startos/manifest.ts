@@ -39,7 +39,7 @@ export const manifest = setupManifest({
   dependencies: {
     'hello-world': {
       description: 'A moon needs a world',
-      optional: false,
+      optional: true,
       s9pk: '',
     },
   },

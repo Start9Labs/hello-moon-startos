@@ -16,7 +16,7 @@ export const manifest = setupManifest({
   assets: [],
   volumes: ['main'],
   images: {
-    main: {
+    'hello-moon': {
       source: {
         dockerBuild: {
           dockerfile: 'Dockerfile',

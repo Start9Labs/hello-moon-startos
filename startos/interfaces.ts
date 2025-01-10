@@ -9,7 +9,6 @@ export const setInterfaces = sdk.setupInterfaces(async ({ effects }) => {
     name: 'Web UI',
     id: 'webui',
     description: 'The web interface of Hello Moon',
-    hasPrimary: false,
     type: 'ui',
     schemeOverride: null,
     masked: false,

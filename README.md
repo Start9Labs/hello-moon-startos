@@ -49,8 +49,8 @@ Prepare your build environment. In this example we are using Ubuntu 20.04.
 Clone the project locally. 
 
 ```
-git clone https://github.com/Start9Labs/robosats-startos.git
-cd robosats-wrapper
+git clone https://github.com/Start9Labs/hello-moon-startos.git
+cd hello-moon-startos
 ```
 
 ## Building
@@ -78,7 +78,7 @@ make arm
 ```
 start-cli auth login
 # Enter your Start9 server master password
-start-cli --host https://adjective-noun.local package install robosats.s9pk
+start-cli --host https://adjective-noun.local package install hello-moon.s9pk
 ```
 
 ### UI

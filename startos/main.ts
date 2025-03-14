@@ -1,5 +1,5 @@
 import { sdk } from './sdk'
-import { T } from '@start9labs/start-sdk'
+import { health } from '@start9labs/start-sdk'
 import { manifest as helloWorldManifest } from 'hello-world-startos/startos/manifest'
 import { uiPort } from './utils'
 
@@ -19,7 +19,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    *
    * In this section, we define *additional* health checks beyond those included with each daemon (below).
    */
-  const healthReceipts: T.HealthReceipt[] = []
+  const additionalChecks: health.HealthCheck[] = []
 
   /**
    * ======================== Daemons ========================
@@ -28,22 +28,25 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    *
    * Each daemon defines its own health check, which can optionally be exposed to the user.
    */
-  return sdk.Daemons.of(effects, started, healthReceipts).addDaemon('primary', {
-    subcontainer: { imageId: 'hello-moon' },
-    command: ['./hello-moon'],
-    mounts: sdk.Mounts.of()
-      .addVolume('main', null, '/data', false)
-      .addDependency<
-        typeof helloWorldManifest
-      >('hello-world', 'main', null, '/hello-world', true),
-    ready: {
-      display: 'Web Interface',
-      fn: () =>
-        sdk.healthCheck.checkPortListening(effects, uiPort, {
-          successMessage: 'The web interface is ready',
-          errorMessage: 'The web interface is unreachable',
-        }),
+  return sdk.Daemons.of(effects, started, additionalChecks).addDaemon(
+    'primary',
+    {
+      subcontainer: { imageId: 'hello-moon' },
+      command: ['./hello-moon'],
+      mounts: sdk.Mounts.of()
+        .addVolume('main', null, '/data', false)
+        .addDependency<
+          typeof helloWorldManifest
+        >('hello-world', 'main', null, '/hello-world', true),
+      ready: {
+        display: 'Web Interface',
+        fn: () =>
+          sdk.healthCheck.checkPortListening(effects, uiPort, {
+            successMessage: 'The web interface is ready',
+            errorMessage: 'The web interface is unreachable',
+          }),
+      },
+      requires: [],
     },
-    requires: [],
-  })
+  )
 })

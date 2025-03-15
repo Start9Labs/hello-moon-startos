@@ -1,5 +1,5 @@
 import { sdk } from './sdk'
-import { health } from '@start9labs/start-sdk'
+import { T } from '@start9labs/start-sdk'
 import { manifest as helloWorldManifest } from 'hello-world-startos/startos/manifest'
 import { uiPort } from './utils'
 
@@ -19,7 +19,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    *
    * In this section, we define *additional* health checks beyond those included with each daemon (below).
    */
-  const additionalChecks: health.HealthCheck[] = []
+  const additionalChecks: T.HealthCheck[] = []
 
   /**
    * ======================== Daemons ========================

@@ -13,7 +13,6 @@ export const manifest = setupManifest({
     short: 'Bare bones example of a StartOS service with dependencies',
     long: 'Hello Moon is a bare-bones service with dependencies that launches a web interface to say "Hello Moon", and nothing more.',
   },
-  assets: [],
   volumes: ['main'],
   images: {
     'hello-moon': {

@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@start9labs/start-sdk": "0.4.0-beta.1",
-    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#dd261a9a02c3ecfa60a658f86e900db33f8d66fa"
+    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#5a61aa97ce7670d02499486722ec2a328315b02f"
   },
   "devDependencies": {
     "@types/node": "^22.1.0",

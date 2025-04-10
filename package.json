@@ -6,8 +6,8 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@start9labs/start-sdk": "0.4.0-beta.1",
-    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#5a61aa97ce7670d02499486722ec2a328315b02f"
+    "@start9labs/start-sdk": "0.4.0-beta.2",
+    "hello-world-startos": "git+https://github.com/Start9Labs/hello-world-startos.git#d0bbe2ca4d2413cee59e966366db64ab396c5fe0"
   },
   "devDependencies": {
     "@types/node": "^22.1.0",

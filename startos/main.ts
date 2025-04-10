@@ -32,7 +32,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
     'primary',
     {
       subcontainer: { imageId: 'hello-moon' },
-      command: ['./hello-moon'],
+      command: ['hello-world'],
       mounts: sdk.Mounts.of()
         .addVolume('main', null, '/data', false)
         .addDependency<

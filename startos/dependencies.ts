@@ -16,7 +16,7 @@ export const setDependencies = sdk.setupDependencies(async ({ effects }) => {
   return {
     'hello-world': {
       kind: 'running',
-      versionRange: '>=1.0.0',
+      versionRange: '>=0.3.6',
       healthChecks: ['primary'], // in this case, Hello World's "primary" daemon
     },
   }

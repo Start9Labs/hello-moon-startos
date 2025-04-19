@@ -31,13 +31,17 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
   return sdk.Daemons.of(effects, started, additionalChecks).addDaemon(
     'primary',
     {
-      subcontainer: { imageId: 'hello-moon' },
+      subcontainer: await sdk.SubContainer.of(
+        effects,
+        { imageId: 'hello-moon' },
+        sdk.Mounts.of()
+          .addVolume('main', null, '/data', false)
+          .addDependency<
+            typeof helloWorldManifest
+          >('hello-world', 'main', null, '/hello-world', true),
+        'hello-moon-sub',
+      ),
       command: ['hello-world'],
-      mounts: sdk.Mounts.of()
-        .addVolume('main', null, '/data', false)
-        .addDependency<
-          typeof helloWorldManifest
-        >('hello-world', 'main', null, '/hello-world', true),
       ready: {
         display: 'Web Interface',
         fn: () =>

@@ -53,13 +53,3 @@ install: | check-deps check-init
 	@echo "\nInstalling to $$(grep -v '^#' ~/.startos/config.yaml | cut -d'/' -f3) ...\n"
 	@[ -f $(PACKAGE_ID).s9pk ] || ( $(MAKE) && echo "\nInstalling to $$(grep -v '^#' ~/.startos/config.yaml | cut -d'/' -f3) ...\n" )
 	@start-cli package install -s $(PACKAGE_ID).s9pk
-
-update-deps:
-	@if ! command -v npx > /dev/null; then \
-		echo "Error: npx not found. Please install Node.js and npm."; \
-		exit 1; \
-	fi
-	@echo "Updating all dependencies to latest stable versions..."
-	@npx npm-check-updates -u
-	@npm i
-	

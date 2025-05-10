@@ -35,10 +35,19 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
         effects,
         { imageId: 'hello-moon' },
         sdk.Mounts.of()
-          .addVolume('main', null, '/data', false)
-          .addDependency<
-            typeof helloWorldManifest
-          >('hello-world', 'main', null, '/hello-world', true),
+          .mountVolume({
+            volumeId: 'main',
+            subpath: null,
+            mountpoint: '.data',
+            readonly: false,
+          })
+          .mountDependency<typeof helloWorldManifest>({
+            dependencyId: 'hello-world',
+            volumeId: 'main',
+            subpath: null,
+            mountpoint: '/hello-world',
+            readonly: true,
+          }),
         'hello-moon-sub',
       ),
       command: ['hello-world'],

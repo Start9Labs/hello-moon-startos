@@ -2,7 +2,7 @@ import { sdk } from './sdk'
 import { setName } from 'hello-world-startos/startos/actions/setName'
 
 export const setDependencies = sdk.setupDependencies(async ({ effects }) => {
-  await sdk.action.request(effects, 'hello-world', setName, 'important', {
+  await sdk.action.createTask(effects, 'hello-world', setName, 'important', {
     input: {
       kind: 'partial',
       value: {

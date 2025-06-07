@@ -17,7 +17,9 @@ export const setDependencies = sdk.setupDependencies(async ({ effects }) => {
     'hello-world': {
       kind: 'running',
       versionRange: '>=0.4.0',
-      healthChecks: ['primary'], // in this case, Hello World's "primary" daemon
+      // In this case, Hello World's "primary" daemon is also a health check with ID "primary"
+      // WARNING, this array is NOT type safe. Make sure the ID actually exists in the dependency
+      healthChecks: ['primary'],
     },
   }
 })

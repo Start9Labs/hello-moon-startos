@@ -50,7 +50,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
           }),
         'hello-moon-sub',
       ),
-      command: ['hello-world'],
+      exec: { command: ['hello-world'] },
       ready: {
         display: 'Web Interface',
         fn: () =>

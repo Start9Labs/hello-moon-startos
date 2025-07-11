@@ -1,5 +1,4 @@
 import { setupManifest } from '@start9labs/start-sdk'
-import { current } from './install/versions'
 
 export const manifest = setupManifest({
   id: 'hello-moon',
@@ -9,7 +8,8 @@ export const manifest = setupManifest({
   upstreamRepo: 'https://github.com/Start9Labs/hello-world',
   supportSite: 'https://docs.start9.com/',
   marketingSite: 'https://start9.com/',
-  docsUrl: `https://github.com/Start9Labs/hello-moon-startos/blob/${current.options.version.replace(':', '_')}/instructions.md`,
+  docsUrl:
+    'https://github.com/Start9Labs/hello-moon-startos/blob/master/instructions.md',
   donationUrl: 'https://donate.start9.com/',
   description: {
     short: 'Bare bones example of a StartOS service with dependencies',

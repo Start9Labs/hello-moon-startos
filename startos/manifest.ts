@@ -1,4 +1,10 @@
 import { setupManifest } from '@start9labs/start-sdk'
+import { SDKImageInputSpec } from '@start9labs/start-sdk/base/lib/types/ManifestTypes'
+
+const BUILD = process.env.BUILD || ''
+
+const architectures =
+  BUILD === 'x86_64' || BUILD === 'aarch64' ? [BUILD] : ['x86_64', 'aarch64']
 
 export const manifest = setupManifest({
   id: 'hello-moon',
@@ -24,11 +30,12 @@ export const manifest = setupManifest({
           workdir: '.',
         },
       },
-      arch: ['x86_64', 'aarch64'],
-      emulateMissingAs: 'aarch64',
-    },
+      arch: architectures,
+    } as SDKImageInputSpec,
   },
-  hardwareRequirements: {},
+  hardwareRequirements: {
+    arch: architectures,
+  },
   alerts: {
     install: null,
     update: null,
@@ -41,7 +48,7 @@ export const manifest = setupManifest({
     'hello-world': {
       description: 'A moon needs a world',
       optional: true,
-      s9pk: 'https://github.com/Start9Labs/hello-world-startos/releases/download/v0.4.0/hello-world.s9pk',
+      s9pk: 'https://github.com/Start9Labs/hello-world-startos/releases/download/v0.4.0.0/hello-world.s9pk',
     },
   },
 })

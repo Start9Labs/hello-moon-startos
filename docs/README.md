@@ -1,4 +1,4 @@
-# Instructions for Hello World on StartOS
+# Instructions for Hello Moon on StartOS
 
 This `/docs` folder is for service-specific documentation on StartOS.  
 Keep it minimal - usually just installation or usage instructions and a reference to the upstream project.

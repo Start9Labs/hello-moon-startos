@@ -21,11 +21,11 @@ define SUMMARY
 	arches=$$(echo $$manifest | jq -r '.hardwareRequirements.arch | join(", ")'); \
 	sdkv=$$(echo $$manifest | jq -r .sdkVersion); \
 	gitHash=$$(echo "$$manifest" | jq -r .gitHash | sed -E 's/(.*-modified)$$/\x1b[0;31m\1\x1b[0m/'); \
-	echo ""; \
-	echo "\033[1;32m✅ Build Complete!\033[0m"; \
-	echo ""; \
-	echo "\033[1;37m📦 $$title\033[0m   \033[36mv$$version\033[0m"; \
-	echo "───────────────────────────────"; \
+	printf "\n"; \
+	printf "\033[1;32m✅ Build Complete!\033[0m\n"; \
+	printf "\n"; \
+	printf "\033[1;37m📦 $$title\033[0m   \033[36mv$$version\033[0m\n"; \
+	printf "───────────────────────────────\n"; \
 	printf " \033[1;36mFilename:\033[0m   %s\n" "$(1)"; \
 	printf " \033[1;36mSize:\033[0m       %s\n" "$$size"; \
 	printf " \033[1;36mArch:\033[0m       %s\n" "$$arches"; \

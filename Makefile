@@ -16,11 +16,11 @@ endif
 define SUMMARY
 	@manifest=$$(start-cli s9pk inspect $(1) manifest); \
 	size=$$(du -h $(1) | awk '{print $$1}'); \
-	title=$$(echo $$manifest | jq -r .title); \
-	version=$$(echo $$manifest | jq -r .version); \
-	arches=$$(echo $$manifest | jq -r '.hardwareRequirements.arch | join(", ")'); \
-	sdkv=$$(echo $$manifest | jq -r .sdkVersion); \
-	gitHash=$$(echo "$$manifest" | jq -r .gitHash | sed -E 's/(.*-modified)$$/\x1b[0;31m\1\x1b[0m/'); \
+	title=$$(printf '%s' "$$manifest" | jq -r .title); \
+	version=$$(printf '%s' "$$manifest" | jq -r .version); \
+	arches=$$(printf '%s' "$$manifest" | jq -r '.hardwareRequirements.arch | join(", ")'); \
+	sdkv=$$(printf '%s' "$$manifest" | jq -r .sdkVersion); \
+	gitHash=$$(printf '%s' "$$manifest" | jq -r .gitHash | sed -E 's/(.*-modified)$$/\x1b[0;31m\1\x1b[0m/'); \
 	printf "\n"; \
 	printf "\033[1;32m✅ Build Complete!\033[0m\n"; \
 	printf "\n"; \
